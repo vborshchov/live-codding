@@ -3,6 +3,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
+import sass from "node-sass";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -16,6 +17,30 @@ export default {
 	},
 	plugins: [
 		svelte({
+      preprocess: {
+        style: ({ content, attributes }) => {
+          if (attributes.type !== "text/scss") return;
+
+          return new Promise((fulfil, reject) => {
+            sass.render(
+              {
+                data: content,
+                includePaths: ["src"],
+                sourceMap: true,
+                outFile: "x" // this is necessary, but is ignored
+              },
+              (err, result) => {
+                if (err) return reject(err);
+
+                fulfil({
+                  code: result.css.toString(),
+                  map: result.map.toString()
+                });
+              }
+            );
+          });
+        }
+      },
 			// enable run-time checks when not in production
 			dev: !production,
 			// we'll extract any component CSS out into

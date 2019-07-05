@@ -2,10 +2,16 @@
 	export let name;
 </script>
 
-<style>
+<style type="text/scss">
+	@import './styles/variables';
+
 	h1 {
-		color: purple;
+		color: $color-main;
+
+		.name {
+			font-style: italic;
+		}
 	}
 </style>
 
-<h1>Hello {name}!</h1>
+<h1>Hello <span class="name">{name}</span>!</h1>
