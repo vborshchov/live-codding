@@ -37,16 +37,22 @@
             {/if}
         </g>
     </svg>
+
+    <svg class="animated-button" viewBox="0 0 450 60">
+        {#if condition}
+            <path transition:draw="{{duration: duration, delay: delay, easing: quintOut}}" d="M225,10 h-200 a20,20 0 1 0 0,40 h200"/>
+            <path transition:draw="{{duration: duration, delay: delay, easing: quintOut}}" d="M225,10 h200 a20,20 0 1 1 0,40 h-200"/>
+        {/if}
+    </svg>
 </div>
 
 <style>
 
     .grid-container {
-        height: 50vh;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
-        grid-template-areas: "Koh Serpinsky" "Hilbert .";
+        grid-template-areas: "Koh Serpinsky" "Hilbert animated-button";
     }
 
     .Koh { grid-area: Koh; }
@@ -54,5 +60,13 @@
     .Serpinsky { grid-area: Serpinsky; }
 
     .Hilbert { grid-area: Hilbert; }
+
+    .animated-button { 
+        border: 1px dashed gray;
+        grid-area: animated-button; 
+        stroke: #fed098;
+        fill: none;
+        stroke-width: 2;
+    }
 
 </style>

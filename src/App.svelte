@@ -3,6 +3,7 @@
 	import Interpolate from "./examples/Interpolate.svelte";
 	import Transition from "./examples/Transition.svelte";
 	import Draw from "./examples/Draw.svelte";
+	import Animations from "./examples/Animations.svelte";
 
 	export let name;
 </script>
@@ -27,3 +28,5 @@
 <Transition/>
 <hr>
 <Draw/>
+<hr>
+<Animations/>
