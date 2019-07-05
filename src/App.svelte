@@ -1,4 +1,9 @@
 <script>
+	import Motion from "./examples/Motion.svelte";
+	import Interpolate from "./examples/Interpolate.svelte";
+	import Transition from "./examples/Transition.svelte";
+	import Draw from "./examples/Draw.svelte";
+
 	export let name;
 </script>
 
@@ -15,3 +20,10 @@
 </style>
 
 <h1>Hello <span class="name">{name}</span>!</h1>
+<Motion/>
+<hr>
+<Interpolate/>
+<hr>
+<Transition/>
+<hr>
+<Draw/>
